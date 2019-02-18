@@ -5,7 +5,7 @@
       @select='selectMenu'
       router
       mode="horizontal">
-      <el-menu-item v-for="route in permission_routers" :index="route.path" :key="route.path">{{route.name}}</el-menu-item>
+      <el-menu-item v-for="route in permission_routers" :index="route.path" :key="route.path">\{{route.name}}</el-menu-item>
     </el-menu>
 </template>
 
@@ -23,14 +23,6 @@ export default {
         variables() {
           return variables
         },
-    },
-    created(){
-      let vue = this;
-      getHeaderMenu().then(res => {
-        this.$store.dispatch('WebGetRoute',{route:res.data,role:vue.roles});
-      }).catch(() => {
-        
-      })
     },
     methods:{
       selectMenu(index,indexPath){
